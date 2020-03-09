@@ -2,7 +2,7 @@
 
 # OpenCV
 
-*https://github.com/roboticslab-uc3m/installation-guides/blob/master/install-opencv.md
+*Follow https://github.com/roboticslab-uc3m/installation-guides/blob/master/install-opencv.md
 
 
 # OpenNI
