@@ -1,0 +1,15 @@
+#autolab_core
+
+cd ~/catkin_ws/src/
+
+git clone https://github.com/BerkeleyAutomation/autolab_core.git
+cd autolab_core/
+sudo python setup.py install
+
+cd ~/catkin_ws/
+catkin_make
+
+
+#matplotlib
+
+sudo python -m pip install -U matplotlib

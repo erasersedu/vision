@@ -1,0 +1,48 @@
+roscore
+
+
+
+#cd ~/bagfiles/hsr46
+#cd ~/bagfiles/hsr80
+rosbag play -l ~/bagfiles/hsr80/shelf_mid.bag
+
+
+
+rosrun tf static_transform_publisher -0.079796 0.022 0.215172 -1.5707963 -1.5707963 0 head_tilt_link head_rgbd_sensor_link 10
+
+
+
+rosrun erasers_object_finder space_finder_srv -debug
+
+rosrun erasers_object_finder space_finder_cli -dmin 0.40 -dmax 1.20 -wmin -0.60 -wmax 0.60 -hmin 0.60 -hmax 0.80 -wside 0.12 -dside 0.12 -plane
+
+
+
+rosrun erasers_object_finder object_finder_srv -debug
+
+#rosrun erasers_object_finder object_finder_cli -dmin 0.40 -dmax 1.40 -wmin -0.50 -wmax 0.50 -hmin 0.01 -hmax 1.20 -plane -bigplane
+rosrun erasers_object_finder object_finder_cli -dmin 0.40 -dmax 2.40 -wmin -0.50 -wmax 0.50 -hmin 0.60 -hmax 0.80 -plane -bigplane
+
+
+
+
+
+    header: 
+      seq: 0
+      stamp: 
+        secs: 1557379117
+        nsecs: 502891160
+      frame_id: "head_tilt_link"
+    child_frame_id: "head_rgbd_sensor_link"
+    transform: 
+      translation: 
+        x: -0.079796
+        y: 0.022
+        z: 0.215172
+      rotation: 
+        x: -0.5
+        y: 0.499999999998
+        z: -0.5
+        w: 0.500000000002
+
+

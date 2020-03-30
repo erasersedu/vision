@@ -1,0 +1,4 @@
+int64 id                             #frame number
+int64 width                          #width
+int64 height                         #height
+uint32[] occmap                      #occupancy map

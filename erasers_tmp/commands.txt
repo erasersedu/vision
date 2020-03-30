@@ -1,0 +1,39 @@
+roslaunch hsrb_gazebo_launch hsrb_megaweb2015_world.launch
+
+source ./devel/setup.bash
+rosrun erasers_line_finder front_line_srv -debug -conf ~/ros/mapping_ws/src/erasers_tools/erasers_pov_conf.yaml
+
+source ./devel/setup.bash
+rosrun erasers_line_finder front_line_cli -debug
+
+============
+============
+============
+
+roslaunch hsrb_gazebo_launch hsrb_megaweb2015_world.launch
+
+rosnode kill /pose_integrator
+
+rosrun hector_mapping hector_mapping _map_size:=2048 _map_resolution:=0.05 _pub_map_odom_transform:=true _scan_topic:=/hsrb/base_scan _use_tf_scan_transformation:=false _map_update_angle_thresh:=2.0 _map_update_distance_thresh:=0.10 _scan_subscriber_queue_size:=1 _update_factor_free:=0.39 _update_factor_occupied:=0.85 _base_frame:=base_range_sensor_link
+
+source ./devel/setup.bash
+rosrun erasers_robot_pose mapping_pose_srv
+
+source ./devel/setup.bash
+rosrun erasers_top_pov top_pov_srv -conf ~/ros/mapping_ws/src/erasers_tools/erasers_pov_conf.yaml
+
+source ./devel/setup.bash
+rosrun erasers_top_map top_map_srv
+
+source ./devel/setup.bash
+rosrun erasers_top_map top_pov2map_srv -debug
+
+source ./devel/setup.bash
+rosrun erasers_top_map top_pov2map_cli -debug
+
+--------------
+#To move the robot around
+** http://localhost:8900/hsrb_user_wui/ **
+
+rosrun key_teleop key_teleop.py
+

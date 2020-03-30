@@ -1,0 +1,6 @@
+float64 maxx
+float64 miny
+float64 maxy
+float64 maxz
+---
+erasers_nav_msgs/LinePoint line_point
